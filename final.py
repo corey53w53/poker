@@ -40,7 +40,7 @@ class Hand:
         elif frequency[0]==2 and frequency[1]==2: return "Double Pairs"
         elif frequency[0]==2: return "Pair"
         else: return "High Card"
-sims=10000000
+sims=100000
 classify_hist={}
 for x in range(sims):
     hand=Hand()
