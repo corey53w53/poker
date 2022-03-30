@@ -40,7 +40,10 @@ class Hand:
         elif frequency[0]==2 and frequency[1]==2: return "Double Pairs"
         elif frequency[0]==2: return "Pair"
         else: return "High Card"
-sims=100000
+    def classify_once(self):
+        print(self.classify())
+        return
+sims=1000
 classify_hist={}
 for x in range(sims):
     hand=Hand()
@@ -51,13 +54,17 @@ print(classify_hist)
 
 final_hist=Counter(classify_hist)
 for key in final_hist: final_hist[key]/=(sims/100)
-print("High Card: " + str(final_hist["High Card"]))
-print("Pair: " + str(final_hist["Pair"]))
-print("Double Pairs: " + str(final_hist["Double Pairs"]))
-print("Three of a Kind: " + str(final_hist["Three of a Kind"]))
-print("Straight: " + str(final_hist["Straight"]))
-print("Flush: " + str(final_hist["Flush"]))
-print("Full House: " + str(final_hist["Full House"]))
-print("Four of a Kind: " + str(final_hist["Four of a Kind"]))
-print("Straight Flush: " + str(final_hist["Straight Flush"]))
-print("Royal Flush: " + str(final_hist["Royal Flush"]))
+print("High Card: " + str(final_hist["High Card"]) + "%")
+print("Pair: " + str(final_hist["Pair"]) + "%")
+print("Double Pairs: " + str(final_hist["Double Pairs"]) + "%")
+print("Three of a Kind: " + str(final_hist["Three of a Kind"]) + "%")
+print("Straight: " + str(final_hist["Straight"]) + "%")
+print("Flush: " + str(final_hist["Flush"]) + "%")
+print("Full House: " + str(final_hist["Full House"]) + "%")
+print("Four of a Kind: " + str(final_hist["Four of a Kind"]) + "%")
+print("Straight Flush: " + str(final_hist["Straight Flush"]) + "%")
+print("Royal Flush: " + str(final_hist["Royal Flush"]) + "%")
+
+
+hand=Hand()
+hand.classify_once()
